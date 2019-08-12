@@ -1,0 +1,29 @@
+<ion-header no-border id="backgroundHeader">
+    <ion-toolbar>
+        <img src="./assets/img/bosquesdepino.jpg" id="backgroundHeader" class="img-fluid m-0" alt="Responsive image">
+            <div class="card-img-overlay">
+                <h5 class="card-title text-center text-white">Tareas Pendientes</h5>
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+        <ion-card class="alert-danger text-center" *ngIf="totalListas === 0">
+            <ion-card-header>
+                <ion-card-title class="text-danger">No se encontraron listas creadas</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+                Para agregar una lista, pulse el botón '+' e ingrese el nombre de la lista
+            </ion-card-content>
+        </ion-card>
+        
+        <app-listas [terminada]="false"></app-listas>
+
+        <!-- fab placed to the top end -->
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-fab-button color='danger' (click)="agregarLista()">
+                <ion-icon name="add"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+</ion-content>
